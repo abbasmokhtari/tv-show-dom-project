@@ -55,6 +55,7 @@ let makeDiv = (title, season, number, photo, summary) => {
   newDiv.appendChild(newTitle);
   newDiv.appendChild(newPhoto);
   newDiv.appendChild(newSummary);
+  newDiv.className = 'main-block';
   return newDiv
 }
 

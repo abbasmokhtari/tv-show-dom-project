@@ -1,3 +1,22 @@
 #root {
   color: rgb(27, 27, 27);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.main-block {
+  text-align: center;
+  width: 90%;
+  background-color: rgb(240, 240, 240);
+  border: 2px solid rgb(207, 207, 207);
+  margin-bottom: 20px;
+}
+
+.main-block p {
+  text-align: justify;
+  padding: 0 10px;
+}
+
+.main-block img {
+  border: 1px solid black;
 }
