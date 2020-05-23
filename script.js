@@ -7,7 +7,7 @@ function setup() {
 function makePageForEpisodes(episodeList) {
   const rootElem = document.getElementById('root');
   episodeList
-    .map(x => makeDiv(x.name, x.season, x.number))
+    .map(x => makeDiv(x.name, x.season, x.number, x.image.medium))
     .forEach(x => rootElem.appendChild(x))
   // rootElem.textContent = `Got ${episodeList.length} episode(s)`;
 }
@@ -28,14 +28,22 @@ let makeTitle = (title, season, number) => {
   return titleElement
 }
 
+//Getting photo
 
+let makePhoto = (photo) => {
+  let photoElement = document.createElement('img');
+  photoElement.src = photo;
+  return photoElement
+}
 
 // making the main DIV
 
-let makeDiv = (title, season, number) => {
+let makeDiv = (title, season, number, photo) => {
   let newDiv = document.createElement('div');
   let newTitle = makeTitle(title, season, number);
+  let newPhoto = makePhoto(photo);
   newDiv.appendChild(newTitle);
+  newDiv.appendChild(newPhoto);
   return newDiv
 }
 
