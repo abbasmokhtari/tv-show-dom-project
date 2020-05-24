@@ -93,6 +93,31 @@ searchBar.addEventListener('keyup', (e) => {
 
 //300 select menu
 
+let pullDown = document.querySelector('#pull-down');
+
+//generating the list
+let makePullDownList = (title, season, number) => {
+  let listElement = document.createElement('option');
+  let titleElement = document.createElement('h5');
+  titleElement.innerText = `S${zeroAdd(season)}E${zeroAdd(number)} - ${title}`;
+  listElement.appendChild(titleElement);
+  return listElement
+}
+
+//populate the pull down menu
+
+let makePullDownMenu = (episodeList) => {
+  episodeList
+    .map(x => makePullDownList(x.name, x.season, x.number))
+    .forEach(x => pullDown.appendChild(x))
+}
+
+let pullDownMenu = () => {
+  const episodeList = getAllEpisodes();
+  makePullDownMenu(episodeList);
+}
+
+pullDownMenu();
 
 
 window.onload = setup;
