@@ -2,6 +2,7 @@
   color: rgb(27, 27, 27);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 10px;
 }
 
 .main-block {
@@ -9,7 +10,7 @@
   width: 90%;
   background-color: rgb(240, 240, 240);
   border: 2px solid rgb(207, 207, 207);
-  margin-bottom: 20px;
+  margin: 10px auto;
 }
 
 .main-block p {
@@ -19,4 +20,22 @@
 
 .main-block img {
   border: 1px solid black;
+}
+
+.search-area {
+  display: flex;
+  margin-bottom: 10px;
+  background-color: rgb(216, 216, 216);
+  height: 30px;
+  border: rgb(126, 126, 126) solid 1px;
+  margin: 0;
+}
+
+input {
+  margin: 3px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
 }

@@ -41,8 +41,8 @@ let makePhoto = (photo) => {
 let makeSummary = (summary) => {
   let summaryElement = document.createElement('p');
   summaryElement.innerText = summary
-  .substring(0, summary.length - 4)
-  .substring(3);
+    .substring(0, summary.length - 4)
+    .substring(3);
   return summaryElement
 }
 
@@ -60,6 +60,15 @@ let makeDiv = (title, season, number, photo, summary) => {
   return newDiv
 }
 
+
+// 200 search bar
+
+let searchBar = document.querySelector('#searchbox');
+
+searchBar.addEventListener('keyup', (e) => {
+let searchSrting = e.target.value.toLowerCase();
+console.log(searchSrting);
+})
 
 
 
