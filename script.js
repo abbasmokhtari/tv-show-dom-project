@@ -65,11 +65,13 @@ let makeDiv = (title, season, number, photo, summary) => {
 
 let searchBar = document.querySelector('#searchbox');
 
+//list of all items
+const episodeList = getAllEpisodes();
+
 searchBar.addEventListener('keyup', (e) => {
   //grabbing the typed text from search box
   let searchSrting = e.target.value.toLowerCase();
   //making the filter
-  const episodeList = getAllEpisodes();
   const mainBlock = document.querySelectorAll('.main-block')
   const filteredCharacter = episodeList.filter((character) => {
     return (
@@ -77,6 +79,7 @@ searchBar.addEventListener('keyup', (e) => {
       character.summary.toLowerCase().includes(searchSrting)
     );
   })
+
   //display Result
   if (filteredCharacter.length >= 0) {
     mainBlock.forEach(x => x.style.display = 'none');
@@ -98,9 +101,8 @@ let pullDown = document.querySelector('#pull-down');
 //generating the list
 let makePullDownList = (title, season, number) => {
   let listElement = document.createElement('option');
-  let titleElement = document.createElement('h5');
-  titleElement.innerText = `S${zeroAdd(season)}E${zeroAdd(number)} - ${title}`;
-  listElement.appendChild(titleElement);
+  listElement.innerText = `S${zeroAdd(season)}E${zeroAdd(number)} - ${title}`;
+  listElement.setAttribute('value', `${title}`);
   return listElement
 }
 
@@ -112,12 +114,29 @@ let makePullDownMenu = (episodeList) => {
     .forEach(x => pullDown.appendChild(x))
 }
 
-let pullDownMenu = () => {
-  const episodeList = getAllEpisodes();
-  makePullDownMenu(episodeList);
-}
+makePullDownMenu(episodeList);
 
-pullDownMenu();
+
+//making pull down menu work
+
+pullDown.addEventListener('change', (event) => {
+  const result = event.target.value.toLowerCase();
+  const mainBlock = document.querySelectorAll('.main-block')
+  const filteredCharacter = episodeList.filter((character) => {
+    return (
+      character.name.toLowerCase().includes(result) 
+    );
+  })
+  //display Result
+  if (filteredCharacter.length >= 0) {
+    mainBlock.forEach(x => x.style.display = 'none');
+    makePageForEpisodes(filteredCharacter);
+  } else if (result = 'Select Episode') {
+    makePageForEpisodes(episodeList);
+  }
+})
+
+
 
 
 window.onload = setup;
