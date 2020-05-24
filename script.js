@@ -66,8 +66,19 @@ let makeDiv = (title, season, number, photo, summary) => {
 let searchBar = document.querySelector('#searchbox');
 
 searchBar.addEventListener('keyup', (e) => {
-let searchSrting = e.target.value.toLowerCase();
-console.log(searchSrting);
+  //grabbing the typed text from search box
+  let searchSrting = e.target.value.toLowerCase();
+  //making the filter
+  let episodeList = getAllEpisodes();
+  let filteredCharacter = episodeList.filter((character) => {
+    return (
+      character.name.toLowerCase().includes(searchSrting) ||
+      character.summary.toLowerCase().includes(searchSrting)
+    );
+  })
+  console.log(filteredCharacter);
+
+
 })
 
 
