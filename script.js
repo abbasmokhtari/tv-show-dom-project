@@ -12,6 +12,7 @@ function makePageForEpisodes(episodeList) {
   // rootElem.textContent = `Got ${episodeList.length} episode(s)`;
 }
 
+// generate 0 before numbers less than 10
 let zeroAdd = (num) => {
   if (num > 9) {
     return num
