@@ -24,7 +24,7 @@
 
 .search-area {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 2fr 1fr 1fr;
   margin-bottom: 10px;
   background-color: rgb(216, 216, 216);
   height: 30px;
@@ -33,8 +33,8 @@
 }
 
 #searchbox {
-  height:25px;
-  margin-left: 10px;
+  height: 25px;
+  margin-left: 5px;
 }
 
 input {
@@ -42,7 +42,7 @@ input {
 }
 
 .display-result {
-margin: 6px;
+  margin: 6px;
 }
 
 body {
@@ -52,4 +52,8 @@ body {
 
 .display {
   display: none;
+}
+
+#pull-down{
+  margin: 3px 10px;
 }

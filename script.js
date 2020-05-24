@@ -78,7 +78,6 @@ searchBar.addEventListener('keyup', (e) => {
     );
   })
   //display Result
-
   if (filteredCharacter.length >= 0) {
     mainBlock.forEach(x => x.style.display = 'none');
     makePageForEpisodes(filteredCharacter);
@@ -90,9 +89,9 @@ searchBar.addEventListener('keyup', (e) => {
     const displayResult = document.querySelector('.display-result');
     displayResult.style.display = 'none';
   }
-
-
 })
+
+//300 select menu
 
 
 
