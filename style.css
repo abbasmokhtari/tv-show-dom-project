@@ -23,7 +23,8 @@
 }
 
 .search-area {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
   margin-bottom: 10px;
   background-color: rgb(216, 216, 216);
   height: 30px;
@@ -31,11 +32,23 @@
   margin: 0;
 }
 
+#searchbox {
+  height:25px;
+}
+
 input {
   margin: 3px;
+}
+
+.display-result {
+margin: 6px;
 }
 
 body {
   margin: 0;
   padding: 0;
+}
+
+.display {
+  display: none;
 }

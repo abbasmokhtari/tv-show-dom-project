@@ -70,6 +70,7 @@ searchBar.addEventListener('keyup', (e) => {
   let searchSrting = e.target.value.toLowerCase();
   //making the filter
   let episodeList = getAllEpisodes();
+  let mainBlock = document.querySelectorAll('.main-block')
   let filteredCharacter = episodeList.filter((character) => {
     return (
       character.name.toLowerCase().includes(searchSrting) ||
@@ -77,6 +78,19 @@ searchBar.addEventListener('keyup', (e) => {
     );
   })
   console.log(filteredCharacter);
+  //display Result
+
+  if (filteredCharacter.length > 0) {
+    mainBlock.forEach(x => x.style.display = 'none');
+    makePageForEpisodes(filteredCharacter);
+    let searchArea = document.querySelector('.result-num');
+    searchArea.innerText = `${filteredCharacter.length}`;
+  } else if (searchSrting = '') {
+    makePageForEpisodes(episodeList);
+    const displayResult = document.querySelector('.display-result');
+    displayResult.style.display = 'none';
+    console.log(displayResult);
+  }
 
 
 })
