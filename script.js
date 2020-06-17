@@ -1,8 +1,22 @@
 //You can edit ALL of the code here
 function setup() {
-  const allEpisodes = getAllEpisodes();
-  makePageForEpisodes(allEpisodes);
+  // const allEpisodes = getAllEpisodes();
+  // makePageForEpisodes(allEpisodes);
+  fetchData()
 }
+
+const fetchData = () => {
+  fetch('https://api.tvmaze.com/shows/82/episodes')
+  .then(response => response.json())
+    .then(data => onGetData(data));
+}
+
+
+
+function onGetData(data) {
+  makePageForEpisodes(data);
+}
+
 
 function makePageForEpisodes(episodeList) {
   const rootElem = document.getElementById('root');
